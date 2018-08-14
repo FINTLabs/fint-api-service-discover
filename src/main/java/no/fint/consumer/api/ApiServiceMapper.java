@@ -14,7 +14,7 @@ public class ApiServiceMapper {
 
     private static final String CACHE_SIZE_PATTERN = "/cache/size";
     private static final String LAST_UPDATE_PATTERN = "/last-updated";
-    private static final String ONE_PATTERN = "/.*/\\{id\\}";
+    private static final String ONE_PATTERN = "/.*/\\{id:\\.\\+\\}";
     private static final String COLLECTION_PATTERN = "";
 
     @Value("${fint.relations.default-base-url}")
