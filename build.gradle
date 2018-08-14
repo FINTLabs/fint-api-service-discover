@@ -1,0 +1,37 @@
+plugins {
+    id "com.jfrog.bintray" version "1.8.0"
+}
+
+apply plugin: 'java'
+apply plugin: "maven"
+
+jar {
+    baseName = 'fint-api-service-discover'
+}
+group = 'no.fint'
+sourceCompatibility = 1.8
+
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    jcenter()
+    maven {
+        url "http://dl.bintray.com/fint/maven"
+    }
+}
+
+
+apply from: 'https://raw.githubusercontent.com/FINTlibs/fint-buildscripts/v1.3.0/dependencies.gradle'
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+    compile("com.github.springfox.loader:springfox-loader:${springfoxLoaderVersion}")
+
+    compileOnly("org.projectlombok:lombok:${lombokVersion}")
+    testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+}
+
+
+if (project.hasProperty('bintrayUser') && project.hasProperty('bintrayKey')) {
+    apply from: 'https://raw.githubusercontent.com/FINTlibs/fint-buildscripts/v1.3.0/bintray.gradle'
+}
