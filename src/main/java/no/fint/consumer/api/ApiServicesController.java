@@ -21,7 +21,7 @@ import static java.util.stream.Collectors.groupingBy;
 @Api(tags = {"API Service Discovery"})
 @RestController
 @CrossOrigin
-@RequestMapping(name = "API Service Discovery", value = "/", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@RequestMapping(name = "API Service Discovery", value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ApiServicesController {
 
     @Autowired
