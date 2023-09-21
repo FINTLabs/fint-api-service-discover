@@ -36,9 +36,12 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'io.springfox:springfox-boot-starter:3.0.0'
     implementation 'com.google.guava:guava:30.0-jre'
+
     compileOnly 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
     rewrite("org.openrewrite.recipe:rewrite-spring:5.0.10")
 }
 
