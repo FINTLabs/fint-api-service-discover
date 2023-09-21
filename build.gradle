@@ -1,8 +1,9 @@
 plugins {
-    id 'org.springframework.boot' version '2.7.11'
+    id 'org.springframework.boot' version '2.7.16'
     id 'io.spring.dependency-management' version '1.1.0'
     id 'java'
     id 'maven-publish'
+    id("org.openrewrite.rewrite") version("6.3.6")
 }
 
 group = 'no.fintlabs'
@@ -27,6 +28,10 @@ repositories {
     }
 }
 
+rewrite {
+    activeRecipe("org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7")
+}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'io.springfox:springfox-boot-starter:3.0.0'
@@ -34,6 +39,7 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    rewrite("org.openrewrite.recipe:rewrite-spring:5.0.10")
 }
 
 test {
